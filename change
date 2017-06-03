@@ -2,7 +2,10 @@ brew update
 brew install zsh
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-cat ~/.bashrc >> ~/.zshrc
-chsh -s /usr/local/bin/zsh
+file = "~/.bashrc"
+if [ -f $file ]; 
+  then cat ~/.bashrc >> ~/.zshrc
+fi
+chsh -s /usr/local/bin/zsh $USERN
 source ~/.zshrc
 say "Да будет так!"
